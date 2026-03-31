@@ -26,6 +26,7 @@ npm install jjjpay-payment-sdk
     document.getElementById('payButton').addEventListener('click', function() {
       const checkout = new PaymentCheckout({
         orderId: 'ORDER123456',
+        orderApiUrl:'https://mybackend.com/api/order',
         confirmUrl: 'https://yourapp.com/payment/success',
         cancelUrl: 'https://yourapp.com/payment/cancel',
         callback: function(data) {
@@ -52,6 +53,7 @@ import PaymentCheckout from 'jjjpay-payment-sdk';
 
 const checkout = new PaymentCheckout({
   orderId: 'ORDER123456',
+  orderApiUrl:'https://mybackend.com/api/order',
   confirmUrl: 'https://yourapp.com/payment/success',
   cancelUrl: 'https://yourapp.com/payment/cancel',
   callback: (data) => {
@@ -72,6 +74,7 @@ checkout.open();
 #### Constructor Options
 
 - `orderId` (string, required): Unique order identifier
+- `orderApiUrl`(string, required): The URL of the API that connects your own backend with Ainepay's API at /api/order/ 
 - `confirmUrl` (string, optional): URL to redirect on successful payment
 - `cancelUrl` (string, optional): URL to redirect on payment cancellation/expiry
 - `callback` (function, required): Callback function called on successful payment
