@@ -12,7 +12,8 @@
     "browser": "dist/payment-sdk.js",
     "files": [
         "dist",
-        "src"
+        "src",
+        "README.md"
     ],
     "scripts": {
         "build": "rollup -c",
