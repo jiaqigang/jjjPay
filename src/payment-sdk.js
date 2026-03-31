@@ -236,7 +236,6 @@
         }
       `;
       this.shadowRoot.appendChild(style);
-
       const loadingEl = document.createElement('div');
       loadingEl.className = 'loading';
       loadingEl.textContent = 'Loading order information...';
