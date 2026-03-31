@@ -22,6 +22,7 @@
     constructor(options) {
       this.options = {
         orderId: '',
+        orderApiUrl:'',
         confirmUrl: '',
         cancelUrl: '',
         callback: () => { },
@@ -307,7 +308,7 @@
     }
 
     async fetchOrderData() {
-      const url = new URL(orderApiUrl, this.baseUrl);
+      const url = new URL(this.options.orderApiUrl, this.baseUrl);
       url.searchParams.set('orderId', this.options.orderId);
       const resp = await fetch(url.toString(), { cache: 'no-store' });
       const payload = await resp.json();
