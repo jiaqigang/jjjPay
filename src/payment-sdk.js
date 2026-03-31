@@ -308,6 +308,7 @@
     }
 
     async fetchOrderData() {
+      console.log("orderApiUrl",this.options.orderApiUrl);
       const url = new URL(this.options.orderApiUrl, this.baseUrl);
       url.searchParams.set('orderId', this.options.orderId);
       const resp = await fetch(url.toString(), { cache: 'no-store' });
