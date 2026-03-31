@@ -366,25 +366,25 @@
             ${statusText(order.status)}
           </span>
         </div>
-        <h1 class="checkout-title">收银台</h1>
+        <h1 class="checkout-title">Checkout</h1>
 
         <div class="amount-panel {
          
           <p class="amount-value">${parseFloat(order.qty) || 0} ${order.coin || ''}</p>
-          <p class="notice">链类型：${order.chain || ''} | 订单号：${order.orderId || ''}</p>
+          <p class="notice">Chain${order.chain || ''} | Order ID: ${order.orderId || ''}</p>
         </div>
 
         <div class="address-panel">
           ${hasAddress ? `
-            <p class="address-label">收款地址</p>
+            <p class="address-label">Address</p>
             <div class="address-row">
               <code class="address-code">${address}</code>
-              <button type="button" class="icon-btn" id="copyBtn">复制</button>
+              <button type="button" class="icon-btn" id="copyBtn">Copy</button>
             </div>
             <div class="qr-wrap" id="qrWrap">
               <img src="${qrUrl}" style="width:200px;height:200px" alt="qr">
             </div>
-            <button class="qr-toggle" id="qrToggleBtn">隐藏二维码</button>
+            <button class="qr-toggle" id="qrToggleBtn">Hide Qr Code</button>
 
             <p class="expired-text ${isExpired ? 'danger' : ''}">
               剩余时间：<span id="countdown">${formatCountdown(order.expired - Date.now())}</span>
@@ -393,12 +393,12 @@
             <div class="status-tip">
               ${order.status === 'PAID' ? '✅ PAID' :
           order.status === 'EXPIRED' ? '⏳ EXPIRED' :
-            'ℹ️ 暂无收款地址'}
+            'ℹ️ No Payment Address Available'}
               <br>
               <small style="font-size:12px;color:#999">
-                ${order.status === 'PAID' ? '请返回商户查看结果' :
-          order.status === 'EXPIRED' ? '请重新创建订单' :
-            '请刷新状态'}
+                ${order.status === 'PAID' ? 'Please return to the merchant to view the result' :
+          order.status === 'EXPIRED' ? 'Please recreate the order' :
+            'Please refresh the status'}
               </small>
             </div>
           `}
@@ -431,8 +431,8 @@
       container.querySelector('#copyBtn')?.addEventListener('click', () => {
         navigator.clipboard.writeText(address).then(() => {
           const btn = container.querySelector('#copyBtn');
-          btn.textContent = '已复制';
-          setTimeout(() => btn.textContent = '复制', 1500);
+          btn.textContent = 'Copied';
+          setTimeout(() => btn.textContent = 'Copy', 1500);
         });
       });
 
@@ -442,7 +442,7 @@
         qrToggle.addEventListener('click', () => {
           showQr = !showQr;
           qrWrap.style.display = showQr ? 'block' : 'none';
-          qrToggle.textContent = showQr ? '隐藏二维码' : '显示二维码';
+          qrToggle.textContent = showQr ? 'Hide QR code' : 'Display QR code';
         });
       }
 
