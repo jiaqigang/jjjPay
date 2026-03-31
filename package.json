@@ -1,6 +1,6 @@
 {
     "name": "jjjpay-payment-sdk",
-    "version": "3.0.3",
+    "version": "3.0.5",
     "description": "A JavaScript payment SDK for integrating payment checkout functionality",
     "main": "dist/payment-sdk.umd.js",
     "module": "dist/payment-sdk.esm.js",
@@ -9,7 +9,7 @@
         "require": "./dist/payment-sdk.umd.js"
     },
     "unpkg": "./dist/payment-sdk.umd.js",
-    "browser": "dist/payment-sdk.js",
+    "browser": "dist/payment-sdk.umd.js",
     "files": [
         "dist",
         "src",
