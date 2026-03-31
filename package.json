@@ -1,0 +1,44 @@
+{
+    "name": "jjjpay-payment-sdk",
+    "version": "2.0.0",
+    "description": "A JavaScript payment SDK for integrating payment checkout functionality",
+    "main": "dist/payment-sdk.umd.js",
+    "module": "dist/payment-sdk.esm.js",
+    "exports": {
+        "import": "./dist/payment-sdk.esm.js",
+        "require": "./dist/payment-sdk.umd.js"
+    },
+    "unpkg": "./dist/payment-sdk.umd.js",
+    "browser": "dist/payment-sdk.js",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "payment",
+        "checkout",
+        "sdk",
+        "javascript"
+    ],
+    "author": "jiaqigang",
+    "license": "MIT",
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^25.0.0",
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-terser": "^0.4.0",
+        "rollup": "^3.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jiaqigang/jjjPay.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jiaqigang/jjjPay/issues"
+    },
+    "homepage": "https://github.com/jiaqigang/jjjPay#readme"
+}
