@@ -22,7 +22,7 @@
     constructor(options) {
       this.options = {
         orderId: '',
-        orderApiUrl:'',
+        orderApiUrl: '',
         confirmUrl: '',
         cancelUrl: '',
         callback: () => { },
@@ -308,7 +308,6 @@
     }
 
     async fetchOrderData() {
-      console.log("orderApiUrl",this.options.orderApiUrl);
       const url = new URL(this.options.orderApiUrl, this.baseUrl);
       url.searchParams.set('orderId', this.options.orderId);
       const resp = await fetch(url.toString(), { cache: 'no-store' });
@@ -317,7 +316,11 @@
       if (!payload.success || !payload.data) {
         throw new Error(payload.msg || 'Failed to obtain order information');
       }
-      return payload.data;
+      const order = payload.data.orders?.[0];
+      if (!order) {
+        throw new Error('Order not found');
+      }
+      return order;
     }
 
     renderCheckoutContent(order) {
