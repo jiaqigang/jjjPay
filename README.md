@@ -77,8 +77,10 @@ checkout.open();
 
 - `orderId` (string, required): Unique order identifier
 - `orderApiUrl`(string, required): The URL of the API that connects your own backend with Ainepay's API at /api/order/ 
-- `confirmUrl` (string, optional): URL to redirect on successful payment
-- `cancelUrl` (string, optional): URL to redirect on payment cancellation/expiry
+- `address` (string, required): The receiving wallet address where users should send payment.
+- `qrApiUrl` (string,required): API endpoint used to generate the payment QR code from the address.
+- `apiBaseUrl` (string,optional): Base URL / root domain for all API requests (e.g., `https://api.yourdomain.com`).  
+  If provided, `orderApiUrl` can be a relative path.
 - `callback` (function, required): Callback function called on successful payment
 - `onclose` (function, optional): Callback function called when modal is closed
 
