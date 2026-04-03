@@ -25,10 +25,11 @@ npm install jjjpay-payment-sdk
   <script>
     document.getElementById('payButton').addEventListener('click', function() {
       const checkout = new PaymentCheckout({
-        orderId: 'ORDER123456',
-        orderApiUrl:'https://mybackend.com/api/order',
-        confirmUrl: 'https://yourapp.com/payment/success',
-        cancelUrl: 'https://yourapp.com/payment/cancel',
+        orderId: '3812177499825986513',
+        orderApiUrl: '/api/order',
+        qrApiUrl: '/api/qr',
+        apiBaseUrl:'http://localhost:3000' //optional
+        address:'0x88ed523ef98efaa8643941fd2e1f82aa80ad0ffb',
         callback: function(data) {
           console.log('Payment successful:', data);
           // Handle successful payment
@@ -52,10 +53,11 @@ npm install jjjpay-payment-sdk
 import PaymentCheckout from 'jjjpay-payment-sdk';
 
 const checkout = new PaymentCheckout({
-  orderId: 'ORDER123456',
-  orderApiUrl:'https://mybackend.com/api/order',
-  confirmUrl: 'https://yourapp.com/payment/success',
-  cancelUrl: 'https://yourapp.com/payment/cancel',
+  orderId: '3812177499825986513',
+  orderApiUrl: '/api/order',
+  qrApiUrl: '/api/qr',
+  apiBaseUrl:'http://localhost:3000' //optional
+  address:'0x88ed523ef98efaa8643941fd2e1f82aa80ad0ffb',
   callback: (data) => {
     console.log('Payment successful:', data);
   },
